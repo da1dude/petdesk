@@ -19,3 +19,8 @@ def pets_index(request):
     # You could also retrieve the logged in user's cats like this
     # cats = request.user.cat_set.all()
     return render(request, 'pets/index.html', { 'pets': pets })
+
+def pets_detail(request, pet_id):
+    pet = Pet.objects.get(id=pet_id)
+    return render(request, 'pets/detail.html', { 'pet': pet })
+
