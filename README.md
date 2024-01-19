@@ -24,6 +24,13 @@ Petdesk is a veterinary application to manage pets for use by the veterinary sta
   - As a user, I want the ability to remove Vaccines / Meds for Pets
 
 # Wire Frame
+![Home](IMGS/Home.png)
+![About](IMGS/About.png)
+![Pet Details](<IMGS/Pet Details.png>)
+![Add Pet](<IMGS/Add Pet.png>)
+![View All Pets](<IMGS/View All Pets.png>)
+![Add Meds](<IMGS/Add Meds.png>)
+![View Meds](<IMGS/View Meds.png>)
 
 # ERD
 
