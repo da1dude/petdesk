@@ -11,6 +11,7 @@
             <p>Species: {{ pet.species }}</p>
             <p>Age: {{ pet.age }}</p>
         </div>
+        <a href="{% url 'detail' pet.id %}" class="waves-effect waves-light btn">Details</a>
     </div>
 {% endfor %}
 
