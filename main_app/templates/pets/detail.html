@@ -13,9 +13,13 @@
     <p>Comment: {{ pet.comment }}</p>
     <p>Doctor: {{ pet.user }}</p>
   </div>
+<<<<<<< HEAD
   <div class="card-action">
     <a href="{% url 'pets_update' pet.id %}">Update</a>
 </div>
+=======
+  <a href="{% url 'pets_delete' pet.id %}">Delete</a>
+>>>>>>> e7253d098797c889e5df748fc27496e250869b4b
 </div>
 
 {% endblock %}
