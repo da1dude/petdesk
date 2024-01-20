@@ -24,7 +24,6 @@ def about(request):
 @login_required
 def pets_index(request):
     #collect our objects from the db
-    # cats = Cat.objects.all()
     pets = Pet.objects.filter(user=request.user)
     # You could also retrieve the logged in user's cats like this
     # cats = request.user.cat_set.all()
@@ -49,6 +48,11 @@ class PetCreate(LoginRequiredMixin, CreateView):
         return super().form_valid(form)
 
 
+class PetUpdate(LoginRequiredMixin, UpdateView):
+    model = Pet
+    fields = ['owner', 'description', 'age', 'comment']
+
+
 def signup(request):
     error_message = ''
     if request.method == 'POST':
@@ -67,4 +71,3 @@ def signup(request):
     form = UserCreationForm()
     context = {'form': form, 'error_message': error_message}
     return render(request, 'registration/signup.html', context)
-
