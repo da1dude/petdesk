@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from .models import Pet
 
 from django.contrib.auth import login
@@ -34,6 +35,18 @@ def pets_index(request):
 def pets_detail(request, pet_id):
     pet = Pet.objects.get(id=pet_id)
     return render(request, 'pets/detail.html', { 'pet': pet })
+
+
+class PetCreate(LoginRequiredMixin, CreateView):
+    model = Pet
+    # this view creates a form, so we need to identify which fields to use
+    fields = ['name', 'owner', 'species', 'description', 'age', 'comment']
+    # This inherited method is called when a
+    # valid pet form is being submitted
+    def form_valid(self, form):
+    # Assign the logged in user (self.request.user)
+        form.instance.user = self.request.user  
+        return super().form_valid(form)
 
 
 def signup(request):

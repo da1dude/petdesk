@@ -5,6 +5,12 @@ from django.contrib.auth.models import User
 
 # Create your models here.
 
+SPECIES = (
+    ('B', 'Bird'),
+    ('C', 'Cat'),
+    ('D', 'Dog')
+)
+
 class Pet(models.Model):
     name = models.CharField(max_length=100)
     owner = models.CharField(max_length=100)
@@ -14,7 +20,6 @@ class Pet(models.Model):
     comment = models.TextField(max_length=250)
     # Add the foreign key linking to a user instance
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-
     def __str__(self):
         return self.name
 
