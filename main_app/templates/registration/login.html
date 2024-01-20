@@ -1,4 +1,7 @@
-<h1>Log In</h1>
+{% extends 'base.html' %}
+{% block content %}
+
+<h3>Log In</h3>
 
 <!-- Add the login form -->
 <form method="POST" action="{% url 'login' %}">
@@ -7,3 +10,5 @@
     <input type="hidden" name="next" value="{{ next }}">
     <button type="submit" class="btn">Log In</button>
 </form>
+
+{% endblock %}
