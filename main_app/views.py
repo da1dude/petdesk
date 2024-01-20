@@ -70,5 +70,4 @@ def signup(request):
 
 class PetDelete(LoginRequiredMixin, DeleteView):
     model = Pet
-
     success_url = '/pets'
