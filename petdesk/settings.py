@@ -11,6 +11,10 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+import environ
+# Initialise environment variables
+env = environ.Env()
+environ.Env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -80,10 +84,10 @@ DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
         'NAME': 'petdeskdb',
-        'USER': 'pkerschieter',
-        'PASSWORD': 'mqx3nvMEpiG5',
-        'HOST': 'ep-muddy-frost-a5uydttf.us-east-2.aws.neon.tech',
-        'PORT': '5432',
+        'USER': env('NEON_USER'),
+        'PASSWORD': env('NEON_PASS'),
+        'HOST': env('NEON_HOST'),
+        'PORT': env('NEON_PORT'),
     }
 }
 
