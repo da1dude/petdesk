@@ -13,6 +13,7 @@
     <p>Comment: {{ pet.comment }}</p>
     <p>Doctor: {{ pet.user }}</p>
   </div>
+  <a href="{% url 'pets_delete' pet.id %}">Delete</a>
 </div>
 
 {% endblock %}
