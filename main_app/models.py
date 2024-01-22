@@ -46,7 +46,6 @@ class Pet(models.Model):
     )
     description = models.TextField(max_length=250)
     age = models.IntegerField()
-    rxs = models.ManyToManyField(Rx)
     comment = models.TextField(max_length=250)
 
     # Add the foreign key linking to a user instance
@@ -68,6 +67,7 @@ class Checkin(models.Model):
     )
     reason = models.TextField(max_length=250)
     pet = models.ForeignKey(Pet, on_delete=models.CASCADE)
+    rxs = models.ManyToManyField(Rx)
 
     def __str__(self):
         return f"{self.get_room_display()} on {self.date} for {self.pet}"

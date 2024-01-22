@@ -70,7 +70,7 @@ class PetDelete(LoginRequiredMixin, DeleteView):
 
 class RxList(LoginRequiredMixin, ListView):
     model = Rx
-    template_name = 'checkins/index.html'
+    template_name = 'rxs/index.html'
 
 
 def signup(request):
