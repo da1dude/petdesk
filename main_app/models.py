@@ -33,8 +33,8 @@ class Rx(models.Model):
     def __str__(self):
         return f'{self.name} - {self.description} - {self.treatment}'
     
-    # def get_absolute_url(self):
-    #     return reverse('toy_detail', kwargs={'pk': self.id})
+    def get_absolute_url(self):
+        return reverse('detail', kwargs={'pk': self.id})
 
 class Pet(models.Model):
     name = models.CharField(max_length=100)

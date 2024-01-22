@@ -76,6 +76,10 @@ class RxDelete(LoginRequiredMixin, DeleteView):
     model = Rx
     success_url = '/rxs'
 
+class RxUpdate(LoginRequiredMixin, UpdateView):
+    model = Rx
+    fields = ['name', 'description', 'treatment']
+
 
 def signup(request):
     error_message = ''
