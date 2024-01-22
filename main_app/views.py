@@ -47,7 +47,7 @@ class PetCreate(LoginRequiredMixin, CreateView):
         form.instance.user = self.request.user  
         return super().form_valid(form)
 
-
+# Update Pet
 class PetUpdate(LoginRequiredMixin, UpdateView):
     model = Pet
     fields = ['owner', 'description', 'age', 'comment']
