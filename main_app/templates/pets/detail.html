@@ -21,7 +21,42 @@
           </div>
         </div>
     </div>
+    <div class="col s6">
+      <form action="{% url 'add_checkin' pet.id %}" method="POST">
+          {% csrf_token %}
+          <!-- render our inputs -->
+          <!-- renders form inputs as p tags -->
+          {{ checkin_form.as_p }}
+          <input type="submit" class="btn" value="Add Checkin">
+      </form>
+      <table class="striped">
+          <thead>
+              <tr><th>Date</th><th>Room</th><th>Reason</th></tr>
+          </thead>
+          <tbody>
+              {% for checkin in pet.checkin_set.all %}
+                  <tr>
+                      <td>{{checkin.date}}</td>
+                      <td>{{checkin.get_room_display}}</td>
+                  </tr>
+              {% endfor %}
+          </tbody>
+      </table>
+  </div>
 </div>
-
+<script>
+  // identify the element
+  const dateEl = document.getElementById('id_date')
+  // M is materialize's global variable
+  M.Datepicker.init(dateEl, {
+      format: 'yyyy-mm-dd',
+      defaultDate: new Date(),
+      setDefaultDate: true,
+      autoClose: true
+  })
+  // here is where we'll render the dropdown (select)
+  const selectEl = document.getElementById('id_room')
+  M.FormSelect.init(selectEl)
+</script>
 
 {% endblock %}

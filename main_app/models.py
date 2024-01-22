@@ -17,6 +17,15 @@ SPECIES_CHOICES = [
     ("R", "Rabbit"),
 ]
 
+ROOM_CHOICES = [
+    ("1", "Room 1"),
+    ("2", "Room 2"),
+    ("3", "Room 3"),
+    ("4", "Room 4"),
+    ("5", "Room 5"),
+
+]
+
 class Pet(models.Model):
     name = models.CharField(max_length=100)
     owner = models.CharField(max_length=100)
@@ -41,3 +50,22 @@ class Pet(models.Model):
     def get_absolute_url(self):
         return reverse('detail', kwargs={'pet_id': self.id})
     
+
+class Checkin(models.Model):
+    date = models.DateField('checkin date')
+    room = models.CharField(
+        max_length=100,
+        choices=ROOM_CHOICES,
+        default=ROOM_CHOICES[0][0],
+    )
+    reason = models.TextField(max_length=250)
+    pet = models.ForeignKey(Pet, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"{self.get_room_display()} on {self.date} for {self.pet}"
+
+    
+    # change the default sort
+    class Meta:
+        ordering = ['-date']
+
