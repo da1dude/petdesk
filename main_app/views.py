@@ -1,6 +1,6 @@
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from .models import Pet, Rx
+from .models import Pet, Rx, Checkin
 
 
 
@@ -83,6 +83,10 @@ class RxDelete(LoginRequiredMixin, DeleteView):
 class RxUpdate(LoginRequiredMixin, UpdateView):
     model = Rx
     fields = ['name', 'description', 'treatment']
+
+class CheckinDetail(LoginRequiredMixin, DetailView):
+    model = Checkin
+    template_name = 'checkins/detail.html'
 
 
 def signup(request):

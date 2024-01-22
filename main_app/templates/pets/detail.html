@@ -1,7 +1,7 @@
 {% extends 'base.html' %}
 {% block content %}
 
-<h1>Pet Details</h1>
+<h3>Pet Details</h3>
 
 <div class="row">
     <div class="col s6 col s6">
@@ -38,6 +38,7 @@
                   <tr>
                       <td>{{checkin.date}}</td>
                       <td>{{checkin.get_room_display}}</td>
+                      <td><a class="btn" href="{% url 'checkin_detail' checkin.id %}">Details</a></td>
                   </tr>
               {% endfor %}
           </tbody>
