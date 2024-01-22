@@ -10,7 +10,7 @@
                         <p>{{rx.name}} - {{rx.description}} - {{rx.treatment}}</p> 
                     </span>
                 </div>
-            </a>
+                <a href="{% url 'rxs_delete' rx.id %}" class="waves-effect waves-light btn">Delete</a>
         </div>
     {% endfor %}
 

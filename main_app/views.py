@@ -72,6 +72,10 @@ class RxList(LoginRequiredMixin, ListView):
     model = Rx
     template_name = 'rxs/index.html'
 
+class RxDelete(LoginRequiredMixin, DeleteView):
+    model = Rx
+    success_url = '/rxs'
+
 
 def signup(request):
     error_message = ''
