@@ -9,6 +9,8 @@ from django.contrib.auth.decorators import login_required
 # Import the mixin for class-based views
 from django.contrib.auth.mixins import LoginRequiredMixin
 
+from .forms import CheckinForm
+
 # Create your views here.
 
 # Define the home view
@@ -33,7 +35,11 @@ def pets_index(request):
 @login_required
 def pets_detail(request, pet_id):
     pet = Pet.objects.get(id=pet_id)
-    return render(request, 'pets/detail.html', { 'pet': pet })
+    checkin_form = CheckinForm()  
+    return render(request, 'pets/detail.html', { 
+        'pet': pet,
+        'checkin_form': checkin_form, 
+    })
 
 
 class PetCreate(LoginRequiredMixin, CreateView):
@@ -75,3 +81,12 @@ def signup(request):
 class PetDelete(LoginRequiredMixin, DeleteView):
     model = Pet
     success_url = '/pets'
+
+@login_required
+def add_checkin(request, pet_id):
+    form = CheckinForm(request.POST)
+    if form.is_valid():
+        new_checkin = form.save(commit=False)
+        new_checkin.pet_id = pet_id
+        new_checkin.save()
+    return redirect('detail', pet_id=pet_id)
