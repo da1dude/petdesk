@@ -2,7 +2,6 @@ from django.db import models
 from django.urls import reverse
 from datetime import date
 from django.contrib.auth.models import User
-from django.utils.translation import gettext_lazy as _
 
 # Create your models here.
 
@@ -40,18 +39,16 @@ class Rx(models.Model):
 class Pet(models.Model):
     name = models.CharField(max_length=100)
     owner = models.CharField(max_length=100)
-    #species = models.CharField(max_length=100)
-
     species = models.CharField(
         max_length=100,
         choices=SPECIES_CHOICES,
         default=SPECIES_CHOICES[0][0],
     )
-    # the reson it wasnt working bc we had an existing pet and we had more the 1 character and the max length was at 1 so switched it to 100 max length and it worked.
-
     description = models.TextField(max_length=250)
     age = models.IntegerField()
+    rxs = models.ManyToManyField(Rx)
     comment = models.TextField(max_length=250)
+
     # Add the foreign key linking to a user instance
     user = models.ForeignKey(User, on_delete=models.CASCADE)
     def __str__(self):

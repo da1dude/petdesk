@@ -11,6 +11,9 @@ urlpatterns = [
     path('pets/<int:pk>/delete', views.PetDelete.as_view(), name='pets_delete'),
     path('pets/<int:pet_id>/add_checkin/', views.add_checkin, name='add_checkin'),
 
+    #Rx URLS
+    path('rxs/', views.RxList.as_view(), name='rxs_index'),
+
 
     #Auth URLs
     path('accounts/signup/', views.signup, name='signup'),
