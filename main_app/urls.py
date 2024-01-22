@@ -17,6 +17,9 @@ urlpatterns = [
     path('rxs/<int:pk>/update/', views.RxUpdate.as_view(), name='rxs_update'),
     path('rxs/<int:pk>/', views.RxDetail.as_view(), name='rxs_detail'),
 
+    #checkin URLS
+    path('checkins/<int:pk>/', views.CheckinDetail.as_view(), name='checkin_detail'),
+
     #Auth URLs
     path('accounts/signup/', views.signup, name='signup'),
 ]

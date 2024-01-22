@@ -6,7 +6,3 @@ class CheckinForm(ModelForm):
         model = Checkin
         fields = ['date', 'room', 'reason']
 
-class RxForm(ModelForm):
-    class Meta:
-        model = Rx
-        fields = ['name', 'description', 'treatment']
