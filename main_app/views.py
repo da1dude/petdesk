@@ -1,7 +1,11 @@
 from django.shortcuts import render, redirect
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from .models import Pet
+from .models import Pet, Rx
 
+
+
+from django.views.generic import ListView
+from django.views.generic.detail import DetailView
 from django.contrib.auth import login
 from django.contrib.auth.forms import UserCreationForm
 # Import the login_required decorator
@@ -59,6 +63,16 @@ class PetUpdate(LoginRequiredMixin, UpdateView):
     fields = ['owner', 'description', 'age', 'comment']
 
 
+class PetDelete(LoginRequiredMixin, DeleteView):
+    model = Pet
+    success_url = '/pets'
+
+
+class RxList(LoginRequiredMixin, ListView):
+    model = Rx
+    template_name = 'checkins/index.html'
+
+
 def signup(request):
     error_message = ''
     if request.method == 'POST':
@@ -78,9 +92,7 @@ def signup(request):
     context = {'form': form, 'error_message': error_message}
     return render(request, 'registration/signup.html', context)
 
-class PetDelete(LoginRequiredMixin, DeleteView):
-    model = Pet
-    success_url = '/pets'
+
 
 @login_required
 def add_checkin(request, pet_id):

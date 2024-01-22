@@ -1,0 +1,17 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    <h1>Rx List</h1>
+
+    {% for rx in object_list %}
+        <div class="card">
+                <div class="card-content">
+                    <span class="card-title">
+                        <p>{{rx.name}} - {{rx.description}} - {{rx.treatment}}</p> 
+                    </span>
+                </div>
+            </a>
+        </div>
+    {% endfor %}
+
+{% endblock %}
