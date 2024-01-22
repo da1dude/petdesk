@@ -13,6 +13,7 @@ urlpatterns = [
 
     #Rx URLS
     path('rxs/', views.RxList.as_view(), name='rxs_index'),
+    path('rxs/<int:pk>/delete', views.RxDelete.as_view(), name='rxs_delete'),
 
 
     #Auth URLs
