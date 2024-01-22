@@ -14,7 +14,8 @@ urlpatterns = [
     #Rx URLS
     path('rxs/', views.RxList.as_view(), name='rxs_index'),
     path('rxs/<int:pk>/delete', views.RxDelete.as_view(), name='rxs_delete'),
-
+    path('rxs/<int:pk>/update/', views.RxUpdate.as_view(), name='rxs_update'),
+    path('rxs/<int:pk>/', views.RxDetail.as_view(), name='rxs_detail'),
 
     #Auth URLs
     path('accounts/signup/', views.signup, name='signup'),

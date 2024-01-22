@@ -72,9 +72,17 @@ class RxList(LoginRequiredMixin, ListView):
     model = Rx
     template_name = 'rxs/index.html'
 
+class RxDetail(LoginRequiredMixin, DetailView):
+    model = Rx
+    template_name = 'rxs/detail.html'
+
 class RxDelete(LoginRequiredMixin, DeleteView):
     model = Rx
     success_url = '/rxs'
+
+class RxUpdate(LoginRequiredMixin, UpdateView):
+    model = Rx
+    fields = ['name', 'description', 'treatment']
 
 
 def signup(request):
