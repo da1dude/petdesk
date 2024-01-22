@@ -6,21 +6,22 @@ from django.utils.translation import gettext_lazy as _
 
 # Create your models here.
 
-# SPECIES = (
-#     ('B', 'Bird'),
-#     ('C', 'Cat'),
-#     ('D', 'Dog')
-# )
+SPECIES_CHOICES = [
+    ("B", "Bird"),
+    ("C", "Cat"),
+    ("D", "Dog"),
+    ("F", "Ferret"),
+    ("H", "Hamster"),
+    ("G", "Guinea Pig"),
+    ("L", "Lizard"),
+    ("R", "Rabbit"),
+]
 
 class Pet(models.Model):
     name = models.CharField(max_length=100)
     owner = models.CharField(max_length=100)
     #species = models.CharField(max_length=100)
-    SPECIES_CHOICES = [
-        ("B", "Bird"),
-        ("C", "Cat"),
-        ("D", "Dog"),
-    ]
+
     species = models.CharField(
         max_length=100,
         choices=SPECIES_CHOICES,
