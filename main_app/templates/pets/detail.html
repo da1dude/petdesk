@@ -7,16 +7,16 @@
     <div class="col s6">
         <div class="card hoverable">
           <div class="card-content">
-            <span class="card-title">{{ pet.name }}</span>
-            <p>Species: {{ pet.get_species_display }}</p>
-            <p>Description: {{ pet.description }}</p>
-            <p>Age: {{ pet.age }}</p>
-            <p>Comment: {{ pet.comment }}</p>
-            <p>Veterinarian: {{ pet.user }}</p>
+            <span class="card-title"><strong>{{ pet.name }}</strong></span>
+            <p><strong>Species:</strong> {{ pet.get_species_display }}</p>
+            <p><strong>Description:</strong> {{ pet.description }}</p>
+            <p><strong>Age:</strong> {{ pet.age }}</p>
+            <p><strong>Comment:</strong> {{ pet.comment }}</p>
+            <p><strong>Veterinarian:</strong> {{ pet.user }}</p>
           </div>
           <div class="card-action">
             <a class="btn" href="{% url 'pets_update' pet.id %}">Update</a>
-            <a class="btn" href="{% url 'pets_delete' pet.id %}">Delete</a>
+            <a class="btn red" href="{% url 'pets_delete' pet.id %}">Delete</a>
           </div>
         </div>
     </div>

@@ -96,7 +96,7 @@ class RxUpdate(LoginRequiredMixin, UpdateView):
     fields = ['name', 'description', 'treatment']
 
 
-
+@login_required
 def checkin_detail(request, checkin_id):
     checkin = Checkin.objects.get(id=checkin_id)
     id_list = checkin.rxs.all().values_list('id')
@@ -108,17 +108,17 @@ def checkin_detail(request, checkin_id):
         'rxs': rxs_checkin_doesnt_have
     })
 
-
+@login_required
 def assoc_rx(request, checkin_id, rx_id):
     # Note that you can pass a rx's id instead of the whole rx object
     Checkin.objects.get(id=checkin_id).rxs.add(rx_id)
-    return redirect('detail', checkin_id=checkin_id)
+    return redirect('checkin_detail', checkin_id=checkin_id)
 
-
+@login_required
 def unassoc_rx(request, checkin_id, rx_id):
     # Note that you can pass a rx's id instead of the whole rx object
     Checkin.objects.get(id=checkin_id).rxs.remove(rx_id)
-    return redirect('detail', checkin_id=checkin_id)
+    return redirect('checkin_detail', checkin_id=checkin_id)
 
 
 def signup(request):
