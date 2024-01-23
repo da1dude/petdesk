@@ -24,6 +24,10 @@ ROOM_CHOICES = [
     ("5", "Room 5"),
 ]
 
+
+
+
+
 class Rx(models.Model):
     name = models.CharField(max_length=50)
     description = models.TextField(max_length=250)
@@ -75,3 +79,10 @@ class Checkin(models.Model):
     class Meta:
         ordering = ['-date']
 
+
+class Photo(models.Model):
+    url = models.CharField(max_length=200)
+    pet = models.ForeignKey(Pet, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return f"Photo for pet_id: {self.pet_id} @{self.url}"

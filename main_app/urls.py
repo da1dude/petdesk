@@ -21,9 +21,12 @@ urlpatterns = [
     #checkin URLS
     path('checkins/<int:checkin_id>', views.checkin_detail, name='checkin_detail'),
 
-    # associate a toy with a cat (M:M)
+    # associate a toy with a pet (M:M)
     path('checkins/<int:checkin_id>/assoc_rx/<int:rx_id>/', views.assoc_rx, name='assoc_rx'),
     path('checkins/<int:checkin_id>/unassoc_rx/<int:rx_id>/', views.unassoc_rx, name='unassoc_rx'),
+
+    #Photo URL
+    path('pets/<int:pet_id>/add_photo/', views.add_photo, name='add_photo'),
 
     #Auth URLs
     path('accounts/signup/', views.signup, name='signup'),
