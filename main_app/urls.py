@@ -19,7 +19,11 @@ urlpatterns = [
     path('rxs/<int:pk>/', views.RxDetail.as_view(), name='rxs_detail'),
 
     #checkin URLS
-    path('checkins/<int:pk>/<petid>', views.CheckinDetail.as_view(), name='checkin_detail'),
+    path('checkins/<int:checkin_id>', views.checkin_detail, name='checkin_detail'),
+
+    # associate a toy with a cat (M:M)
+    path('checkins/<int:checkin_id>/assoc_rx/<int:rx_id>/', views.assoc_rx, name='assoc_rx'),
+    path('checkins/<int:checkin_id>/unassoc_rx/<int:rx_id>/', views.unassoc_rx, name='unassoc_rx'),
 
     #Auth URLs
     path('accounts/signup/', views.signup, name='signup'),
