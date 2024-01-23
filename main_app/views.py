@@ -110,7 +110,7 @@ def checkin_detail(request, checkin_id):
 
 class CheckinUpdate(LoginRequiredMixin, UpdateView):
     model = Checkin
-    fields = ['date', 'room', 'reason', 'notes']
+    fields = ['reason', 'notes']
 
 @login_required
 def assoc_rx(request, checkin_id, rx_id):
