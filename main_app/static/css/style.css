@@ -13,3 +13,10 @@ footer.page-footer {
     text-align: right;
 }
 
+.text-size {
+    font-size: 5px !important;
+}
+
+#text-size {
+    font-size: 5px !important;
+}
