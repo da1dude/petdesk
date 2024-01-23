@@ -95,9 +95,30 @@ class RxUpdate(LoginRequiredMixin, UpdateView):
     model = Rx
     fields = ['name', 'description', 'treatment']
 
-class CheckinDetail(LoginRequiredMixin, DetailView):
-    model = Checkin
-    template_name = 'checkins/detail.html'
+
+
+def checkin_detail(request, checkin_id):
+    checkin = Checkin.objects.get(id=checkin_id)
+    id_list = checkin.rxs.all().values_list('id')
+    rxs_checkin_doesnt_have = Rx.objects.exclude(id__in=id_list)
+    checkin_form = CheckinForm()  
+    return render(request, 'checkins/detail.html', { 
+        'checkin': checkin,
+        'checkin_form': checkin_form, 
+        'rxs': rxs_checkin_doesnt_have
+    })
+
+
+def assoc_rx(request, checkin_id, rx_id):
+    # Note that you can pass a rx's id instead of the whole rx object
+    Checkin.objects.get(id=checkin_id).rxs.add(rx_id)
+    return redirect('detail', checkin_id=checkin_id)
+
+
+def unassoc_rx(request, checkin_id, rx_id):
+    # Note that you can pass a rx's id instead of the whole rx object
+    Checkin.objects.get(id=checkin_id).rxs.remove(rx_id)
+    return redirect('detail', checkin_id=checkin_id)
 
 
 def signup(request):

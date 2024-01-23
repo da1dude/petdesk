@@ -22,7 +22,6 @@ ROOM_CHOICES = [
     ("3", "Room 3"),
     ("4", "Room 4"),
     ("5", "Room 5"),
-
 ]
 
 class Rx(models.Model):
