@@ -68,6 +68,17 @@ class PetDelete(LoginRequiredMixin, DeleteView):
     success_url = '/pets'
 
 
+class RxCreate(LoginRequiredMixin, CreateView):
+    model = Rx
+    # this view creates a form, so we need to identify which fields to use
+    fields = ['name', 'description', 'treatment']
+    # This inherited method is called when a
+    # valid pet form is being submitted
+    def form_valid(self, form):
+    # Assign the logged in user (self.request.user)
+        form.instance.user = self.request.user  
+        return super().form_valid(form)
+
 class RxList(LoginRequiredMixin, ListView):
     model = Rx
     template_name = 'rxs/index.html'

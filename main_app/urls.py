@@ -12,6 +12,7 @@ urlpatterns = [
     path('pets/<int:pet_id>/add_checkin/', views.add_checkin, name='add_checkin'),
 
     #Rx URLS
+    path('rxs/create/', views.RxCreate.as_view(), name='rxs_create'),
     path('rxs/', views.RxList.as_view(), name='rxs_index'),
     path('rxs/<int:pk>/delete', views.RxDelete.as_view(), name='rxs_delete'),
     path('rxs/<int:pk>/update/', views.RxUpdate.as_view(), name='rxs_update'),
