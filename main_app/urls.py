@@ -20,7 +20,7 @@ urlpatterns = [
 
     #checkin URLS
     path('checkins/<int:checkin_id>', views.checkin_detail, name='checkin_detail'),
-
+    path('checkins/<int:pk>/update/', views.CheckinUpdate.as_view(), name='checkins_update'),
     # associate a toy with a cat (M:M)
     path('checkins/<int:checkin_id>/assoc_rx/<int:rx_id>/', views.assoc_rx, name='assoc_rx'),
     path('checkins/<int:checkin_id>/unassoc_rx/<int:rx_id>/', views.unassoc_rx, name='unassoc_rx'),

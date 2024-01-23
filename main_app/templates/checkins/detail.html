@@ -10,7 +10,11 @@
                     <p><strong>Room:</strong> {{checkin.room}}</p>
                     <p><strong>Checkin Date:</strong> {{checkin.date}}</p>
                     <p><strong>Reason:</strong> {{checkin.reason}}</p>
+                    <p><strong>Dr's Notes:</strong> {{checkin.notes}}</p>
                 </span>
+                <div class="card-action">
+                    <a class="btn" href="{% url 'checkins_update' checkin.id %}">Update</a>
+                </div>
             </div>
         </div>
     </div>

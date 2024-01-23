@@ -108,6 +108,10 @@ def checkin_detail(request, checkin_id):
         'rxs': rxs_checkin_doesnt_have
     })
 
+class CheckinUpdate(LoginRequiredMixin, UpdateView):
+    model = Checkin
+    fields = ['date', 'room', 'reason', 'notes']
+
 @login_required
 def assoc_rx(request, checkin_id, rx_id):
     # Note that you can pass a rx's id instead of the whole rx object
@@ -150,3 +154,4 @@ def add_checkin(request, pet_id):
         new_checkin.pet_id = pet_id
         new_checkin.save()
     return redirect('detail', pet_id=pet_id)
+

@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+
+    {% if object %}
+        <h3>Edit {{ object.name }}</h3>
+    {% else %}
+        <h3>Add an Rx</h3>
+    {% endif %}
+
+    <form action="" method="POST">
+        {% csrf_token %}
+        <table>
+            {{ form.as_table }}
+        </table>
+        <input type="submit" value="Submit!" class="btn">
+    </form>
+
+{% endblock %}
