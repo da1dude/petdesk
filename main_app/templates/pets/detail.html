@@ -10,14 +10,13 @@
             <span class="card-title">{{ pet.name }}</span>
             <p>Species: {{ pet.species }}</p>
             <p>Description: {{ pet.description }}</p>
-            <p>Owner: {{ pet.owner }}</p>
             <p>Age: {{ pet.age }}</p>
             <p>Comment: {{ pet.comment }}</p>
-            <p>Doctor: {{ pet.user }}</p>
+            <p>Veterinarian: {{ pet.user }}</p>
           </div>
           <div class="card-action">
-            <a href="{% url 'pets_update' pet.id %}">Update</a>
-            <a href="{% url 'pets_delete' pet.id %}">Delete</a>
+            <a class="btn" href="{% url 'pets_update' pet.id %}">Update</a>
+            <a class="btn" href="{% url 'pets_delete' pet.id %}">Delete</a>
           </div>
         </div>
     </div>
@@ -38,7 +37,7 @@
                   <tr>
                       <td>{{checkin.date}}</td>
                       <td>{{checkin.get_room_display}}</td>
-                      <td><a class="btn" href="{% url 'checkin_detail' checkin.id %}">Details</a></td>
+                      <td><a class="btn" href="{% url 'checkin_detail' checkin.id pet.id%}">Details</a></td>
                   </tr>
               {% endfor %}
           </tbody>

@@ -5,15 +5,14 @@
 
 {% for pet in pets %}
 <div class="row">
-    <div style="width:30%">
+    <div>
         <div class="card hoverable">
             <div class="card-content">
                 <span class="card-title">{{ pet.name }}</span>
-                <p>Owner: {{pet.owner}}</p>
-                <p>Species: {{ pet.species }}</p>
-                <p>Age: {{ pet.age }}</p>
+                <p class="center">Veterinarian: {{pet.user}} &nbsp;&nbsp;&nbsp;&nbsp;  Species: {{ pet.species }} &nbsp;&nbsp;&nbsp;&nbsp; Age: {{ pet.age }} &nbsp;&nbsp;&nbsp;&nbsp; <a href="{% url 'detail' pet.id %}" class="waves-effect waves-light btn">Details</a></p>
+                
             </div>
-            <a href="{% url 'detail' pet.id %}" class="waves-effect waves-light btn">Details</a>
+            
         </div>
     </div>
 </div>    
