@@ -49,7 +49,7 @@ def pets_detail(request, pet_id):
 class PetCreate(LoginRequiredMixin, CreateView):
     model = Pet
     # this view creates a form, so we need to identify which fields to use
-    fields = ['name', 'owner', 'species', 'description', 'age', 'comment']
+    fields = ['name', 'species', 'description', 'age', 'comment']
     # This inherited method is called when a
     # valid pet form is being submitted
     def form_valid(self, form):
@@ -60,7 +60,7 @@ class PetCreate(LoginRequiredMixin, CreateView):
 # Update Pet
 class PetUpdate(LoginRequiredMixin, UpdateView):
     model = Pet
-    fields = ['owner', 'description', 'age', 'comment']
+    fields = ['description', 'age', 'comment']
 
 
 class PetDelete(LoginRequiredMixin, DeleteView):

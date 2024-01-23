@@ -38,7 +38,6 @@ class Rx(models.Model):
 
 class Pet(models.Model):
     name = models.CharField(max_length=100)
-    owner = models.CharField(max_length=100)
     species = models.CharField(
         max_length=100,
         choices=SPECIES_CHOICES,
