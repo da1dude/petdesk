@@ -68,11 +68,15 @@ class Checkin(models.Model):
         default=ROOM_CHOICES[0][0],
     )
     reason = models.TextField(max_length=250)
+    notes = models.TextField(max_length=250, null = True)
     pet = models.ForeignKey(Pet, on_delete=models.CASCADE)
     rxs = models.ManyToManyField(Rx)
 
     def __str__(self):
         return f"{self.get_room_display()} on {self.date} for {self.pet}"
+    
+    def get_absolute_url(self):
+        return reverse('checkin_detail', kwargs={'checkin_id': self.id})    
 
     
     # change the default sort
