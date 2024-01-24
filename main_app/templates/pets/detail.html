@@ -53,7 +53,7 @@
               <tr>
                 <td>{{checkin.date}}</td>
                 <td>{{checkin.get_room_display}}</td>
-                <td><a class="btn" href="{% url 'checkin_detail' checkin.id%}">Details</a></td>
+                <td><a class="btn" href="{% url 'checkin_detail' checkin.id %}">Details</a></td>
               </tr>
             {% endfor %}
           </tbody>
