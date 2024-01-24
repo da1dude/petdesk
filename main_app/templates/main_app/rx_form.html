@@ -7,7 +7,7 @@
         <h3>Add an Rx</h3>
     {% endif %}
 
-    <form action="" method="POST">
+    <form class="form-look" method="POST">
         {% csrf_token %}
         <table>
             {{ form.as_table }}

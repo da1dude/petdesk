@@ -4,7 +4,7 @@
 <h3>Log In</h3>
 
 <!-- Add the login form -->
-<form method="POST" action="{% url 'login' %}">
+<form class="form-look" method="POST" action="{% url 'login' %}">
     {% csrf_token %}
     {{ form.as_p }}
     <input type="hidden" name="next" value="{{ next }}">

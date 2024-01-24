@@ -16,12 +16,12 @@ footer.page-footer {
     text-align: right;
 }
 
-
-.text-size {
-    font-size: 5px !important;
+.form-look {
+    box-sizing: border-box;
+    padding: .5rem;
+    border-radius: 1rem;
+    background-color: hsl(0, 0%, 100%);
+    border: 4px solid hsl(0, 0%, 90%);
+    grid-template-columns: 1fr 1fr;
+    gap: 2rem;
 }
-
-#text-size {
-    font-size: 5px !important;
-}
-
