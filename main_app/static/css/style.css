@@ -6,6 +6,7 @@ body {
     background-size: contain;
 }
 
+
 main {
     flex: 1 0 auto;
 }
@@ -15,6 +16,7 @@ footer.page-footer {
     text-align: right;
 }
 
+
 .text-size {
     font-size: 5px !important;
 }
@@ -22,3 +24,4 @@ footer.page-footer {
 #text-size {
     font-size: 5px !important;
 }
+
