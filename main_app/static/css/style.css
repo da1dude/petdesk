@@ -2,7 +2,7 @@ body {
     display: flex;
     min-height: 100vh;
     flex-direction: column;
-    background: white url(../images/bavkground1.jpg);
+    /* background: white url(../images/bavkground1.jpg); */
     background-size: contain;
 }
 
