@@ -2,9 +2,17 @@
 {% block content %}
 
     {% if object %}
-        <h3>Edit {{ object.name }}</h3>
+    <div class="card card-title">
+        <div class="card-content center title">
+            <h3>Edit {{ object.name }}</h3>
+        </div>
+    </div>
     {% else %}
-        <h3>Add a Checkin</h3>
+    <div class="card card-title">
+        <div class="card-content center title">
+            <h3 class="title">Add a Checkin</h3>
+        </div>
+    </div>
     {% endif %}
 
     <form class="form-look" action="" method="POST">
