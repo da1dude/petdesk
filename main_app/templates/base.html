@@ -42,13 +42,6 @@
             </div>
         </nav>
     </header>
-    <ul class="sidenav" id="mobile-demo" >
-        <li><a href="{% url 'rxs_create' %}">Create Rx</a></li>
-        <li><a href="{% url 'rxs_index' %}">View All Rx's</a></li>
-        <li><a href="{% url 'index' %}">View All My Pets</a></li>
-        <li><a href="{% url 'pets_create' %}">Add a Pet</a></li>
-        <li><a href="{% url 'signup' %}">Sign Up</a></li>
-        <li><a href="{% url 'login' %}">Log In</a></li>
     <form method="post" action="{% url 'logout' %}">
     {% csrf_token %}
         <button class="btn-flat white-text" type="submit">Log Out</button>
