@@ -7,7 +7,7 @@
         <h3>Add a Pet</h3>
     {% endif %}
 
-    <form action="" method="POST">
+    <form class="form-look" action="" method="POST">
         {% csrf_token %}
         <table>
             {{ form.as_table }}
