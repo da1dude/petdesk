@@ -15,6 +15,7 @@
         <div class="card-action">
             <a class="btn" href="{% url 'rxs_update' rx.id %}">Edit</a>
             <a class="btn red" href="{% url 'rxs_delete' rx.id %}">Delete</a>
+            <a class="btn blue right" href="{% url 'rxs_index'%}">Back</a>
         </div>
     </div>
 {% endblock %}
