@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="card card-title">
+    <div class="card-content center title">
+        <h3 class="center title">Pet List</h3>
+    </div>
+</div>
+{% for pet in pets %}
+<div class="row">
+    <div>
+        <div class="card hoverable form-look">
+            <div class="card-content">
+                <span class="card-title center"><h4>{{ pet.name }}</h4></span>
+                <p class="center">Veterinarian: {{pet.user}} &nbsp;&nbsp;&nbsp;&nbsp;  Species: {{ pet.get_species_display }} &nbsp;&nbsp;&nbsp;&nbsp; Age: {{ pet.age }} &nbsp;&nbsp;&nbsp;&nbsp; <a href="{% url 'detail' pet.id %}" class="waves-effect waves-light btn blue">Details</a></p>
+                
+            </div>
+            
+        </div>
+    </div>
+</div>    
+{% endfor %}
+
+{% endblock %}

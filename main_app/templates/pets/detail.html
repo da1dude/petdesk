@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="card card-title">
+  <div class="card-content center title">
+    <h3>Pet Details</h3>
+  </div>
+</div>
+<div class="row">
+  <div class="col s6">
+      <div class="row">
+      {% for photo in pet.photo_set.all %}
+        <img class="responsive-img card-panel form-look" src="{{photo.url}}">
+      {% empty %}
+        <div class="card-panel teal-text center-align">No Photos Uploaded
+        </div>
+      {% endfor %}
+      <form action="{% url 'add_photo' pet.id %}" enctype="multipart/form-data" method="POST" class="card-panel form-look">
+          {% csrf_token %}
+          <input type="file" name="photo-file">
+          <br><br>
+          <button type="submit" class="btn blue">Upload Photo</button>
+      </form>
+    </div>
+    <div class="card form-look">
+      <div class="card-content">
+        <span class="card-title"><strong>{{ pet.name }}</strong></span>
+        <p><strong>Species:</strong> {{ pet.get_species_display }}</p>
+        <p><strong>Description:</strong> {{ pet.description }}</p>
+        <p><strong>Age:</strong> {{ pet.age }}</p>
+        <p><strong>Comment:</strong> {{ pet.comment }}</p>
+        <p><strong>Veterinarian:</strong> {{ pet.user }}</p>
+      </div>
+      <div class="card-action">
+        <a class="btn blue" href="{% url 'pets_update' pet.id %}">Update</a>
+        <a class="btn red" href="{% url 'pets_delete' pet.id %}">Delete</a>
+      </div>
+    </div>
+  </div>
+  <div class="col s6">
+    <form class="form-look" action="{% url 'add_checkin' pet.id %}" method="POST">
+      {% csrf_token %}
+      <!-- render our inputs -->
+      <!-- renders form inputs as p tags -->
+      {{ checkin_form.as_p }}
+      <input type="submit" class="btn blue" value="Add Checkin">
+    </form>
+      <table class="form-look">
+        <thead>
+            <tr><th>Date</th><th>Room</th></tr>
+        </thead>
+        <tbody>
+            {% for checkin in pet.checkin_set.all %}
+              <tr>
+                <td>{{checkin.date}}</td>
+                <td>{{checkin.get_room_display}}</td>
+                <td><a class="btn blue" href="{% url 'checkin_detail' checkin.id %}">Details</a></td>
+              </tr>
+            {% endfor %}
+          </tbody>
+      </table>
+  </div>
+</div>
+
+
+<script>
+  // identify the element
+  const dateEl = document.getElementById('id_date')
+  // M is materialize's global variable
+  M.Datepicker.init(dateEl, {
+      format: 'yyyy-mm-dd',
+      defaultDate: new Date(),
+      setDefaultDate: true,
+      autoClose: true
+  })
+  // here is where we'll render the dropdown (select)
+  const selectEl = document.getElementById('id_room')
+  M.FormSelect.init(selectEl)
+</script>
+
+{% endblock %}

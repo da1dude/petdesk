@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="card card-title">
+    <div class="card-content center title">
+        <h3 class="title">Rx List</h3>
+    </div>
+</div>
+    {% for rx in object_list %}
+        <div class="card hoverable form-look">
+                <div class="card-content">
+                    <span class="card-title">
+                        <h6><strong>{{rx.name}}</strong> - {{rx.description}} </h6>
+                        <h6><strong>Instructions</strong> - {{rx.treatment}} </h6>
+                    </span>
+                </div>
+            <a href="{% url 'rxs_detail' rx.id %}" class="waves-effect waves-light btn blue">Details</a>
+        </div>
+    {% endfor %}
+
+{% endblock %}
