@@ -104,8 +104,8 @@ WSGI_APPLICATION = 'petdesk.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.postgresql',
-        'NAME': 'petdeskdb',
+        'ENGINE': os.environ.get('NEON_ENGINE'),
+        'NAME': os.environ.get('NEON_NAME'),
         'USER': os.environ.get('NEON_USER'),
         'PASSWORD': os.environ.get('NEON_PASS'),
         'HOST': os.environ.get('NEON_HOST'),
