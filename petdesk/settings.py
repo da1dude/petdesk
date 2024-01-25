@@ -104,7 +104,7 @@ WSGI_APPLICATION = 'petdesk.wsgi.application'
 
 DATABASES = {
     'default': {
-        'ENGINE': os.environ.get('NEON_ENGINE'),
+        'ENGINE': os.environ.get('ENGINE'),
         'NAME': os.environ.get('NEON_NAME'),
         'USER': os.environ.get('NEON_USER'),
         'PASSWORD': os.environ.get('NEON_PASS'),
