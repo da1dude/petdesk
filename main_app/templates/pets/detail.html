@@ -18,7 +18,7 @@
           {% csrf_token %}
           <input type="file" name="photo-file">
           <br><br>
-          <button type="submit" class="btn">Upload Photo</button>
+          <button type="submit" class="btn blue">Upload Photo</button>
       </form>
     </div>
     <div class="card form-look">
@@ -31,7 +31,7 @@
         <p><strong>Veterinarian:</strong> {{ pet.user }}</p>
       </div>
       <div class="card-action">
-        <a class="btn" href="{% url 'pets_update' pet.id %}">Update</a>
+        <a class="btn blue" href="{% url 'pets_update' pet.id %}">Update</a>
         <a class="btn red" href="{% url 'pets_delete' pet.id %}">Delete</a>
       </div>
     </div>
@@ -42,7 +42,7 @@
       <!-- render our inputs -->
       <!-- renders form inputs as p tags -->
       {{ checkin_form.as_p }}
-      <input type="submit" class="btn" value="Add Checkin">
+      <input type="submit" class="btn blue" value="Add Checkin">
     </form>
       <table class="form-look">
         <thead>
@@ -53,7 +53,7 @@
               <tr>
                 <td>{{checkin.date}}</td>
                 <td>{{checkin.get_room_display}}</td>
-                <td><a class="btn" href="{% url 'checkin_detail' checkin.id %}">Details</a></td>
+                <td><a class="btn blue" href="{% url 'checkin_detail' checkin.id %}">Details</a></td>
               </tr>
             {% endfor %}
           </tbody>

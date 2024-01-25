@@ -16,7 +16,7 @@
                     <p><strong>Dr's Notes:</strong> {{checkin.notes}}</p>
                 </span>
                 <div class="card-action">
-                    <a class="btn" href="{% url 'checkins_update' checkin.id %}">Update</a>
+                    <a class="btn blue" href="{% url 'checkins_update' checkin.id %}">Update</a>
                 </div>
             </div>
         </div>
@@ -68,7 +68,7 @@
                 <div class="card-action">
                 <form action="{% url 'assoc_rx' checkin.id rx.id %}" method="POST">
                     {% csrf_token %}
-                    <button type="submit" class="btn">+</button>
+                    <button type="submit" class="btn blue">+</button>
                 </form>
                 </div>
             </div>
