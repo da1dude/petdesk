@@ -12,7 +12,7 @@
 <form class="form-look" method="POST" action="{% url 'signup' %}">
     {% csrf_token %}
     {{ form.as_p }}
-    <input type="submit" class="btn" value="Sign Up">
+    <input type="submit" class="btn blue" value="Sign Up">
 </form>
 
 {% endblock %}
