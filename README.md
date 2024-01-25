@@ -46,6 +46,7 @@ Petdesk is a veterinary application to manage pets for use by the veterinary sta
 - Postgres SQL
 - CSS3
 - Materalize
+- Neon
 
 # V1 Images
 
