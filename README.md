@@ -2,6 +2,7 @@
 Petdesk is a veterinary application to manage pets for use by the veterinary staff at the clinic. It allows for checking in and out as well as tracking medications and room assignments. 
 
 # App URL:
+ - Coming soon
 
 # Git Hub Link
   - https://github.com/da1dude/petdesk
@@ -34,7 +35,7 @@ Petdesk is a veterinary application to manage pets for use by the veterinary sta
 
 # ERD
 
-![ERD](<IMGS/Screenshot 2024-01-18 at 3.58.05 PM.png>)
+![ERD](IMGS/ERD_Final.png)
 
 # Technologies Used
 
@@ -48,7 +49,19 @@ Petdesk is a veterinary application to manage pets for use by the veterinary sta
 
 # V1 Images
 
-# ICE BOX
- - Add Pet Images
- - Update Pet Images
+![Home- loggedout](<IMGS/AppScreenShots/Home Screen - logged out.png>)
+![About](IMGS/AppScreenShots/About.png)
+![Signup](<IMGS/AppScreenShots/Sign Up.png>)
+![Signin](<IMGS/AppScreenShots/Sign In.png>)
+![Petlist](<IMGS/AppScreenShots/Pet List.png>)
+![PetDetails](<IMGS/AppScreenShots/Pet Details.png>)
+![CheckinDetails](<IMGS/AppScreenShots/Checkin Details.png>)
+![AddPet](<IMGS/AppScreenShots/Add a Pet.png>)
+![AddRx](<IMGS/AppScreenShots/Add a Rx.png>)
+![RxList](<IMGS/AppScreenShots/Rx List.png>)
 
+
+# ICE BOX
+
+- UI enhancements
+- Better way to add medications
