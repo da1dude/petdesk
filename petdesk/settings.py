@@ -11,9 +11,11 @@ https://docs.djangoproject.com/en/5.0/ref/settings/
 """
 
 from pathlib import Path
+import os
 import environ
 
-import os
+
+
 # Initialise environment variables
 env = environ.Env(
         # set casting, default value
@@ -24,6 +26,7 @@ env = environ.Env(
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
+
 environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 
 
@@ -40,7 +43,6 @@ DEBUG = 'RENDER' not in os.environ
 
 
 ALLOWED_HOSTS = []
-
 RENDER_EXTERNAL_HOSTNAME = os.environ.get('RENDER_EXTERNAL_HOSTNAME')
 if RENDER_EXTERNAL_HOSTNAME:
     ALLOWED_HOSTS.append(RENDER_EXTERNAL_HOSTNAME)
