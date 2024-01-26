@@ -103,9 +103,9 @@ WSGI_APPLICATION = 'petdesk.wsgi.application'
 
 
 
-DATABASES = {
-    'default': dj_database_url.config(),
-}
+# DATABASES = {
+#     'default': dj_database_url.config(),
+# }
 
 # DATABASES = {
 #     'default': {
@@ -118,6 +118,19 @@ DATABASES = {
 #         'PORT': os.environ.get('NEON_PORT'),
 #     }
 # }
+
+# To use Neon with Django, you have to create a Project on Neon and specify the project connection settings in your settings.py in the same way as for standalone Postgres.
+
+DATABASES = {
+  'default': {
+    'ENGINE': 'django.db.backends.postgresql',
+    'NAME': 'petdeskdb',
+    'USER': 'pkerschieter',
+    'PASSWORD': os.environ.get('NEON_PASS'),
+    'HOST': 'ep-muddy-frost-a5uydttf.us-east-2.aws.neon.tech',
+    'PORT': '5432',
+  }
+}
 
 # Password validation
 # https://docs.djangoproject.com/en/5.0/ref/settings/#auth-password-validators
