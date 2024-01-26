@@ -123,10 +123,11 @@ WSGI_APPLICATION = 'petdesk.wsgi.application'
 
 DATABASES = {
   'default': {
+    'default': dj_database_url.config(default='postgresql://postgres:postgres@localhost:5432/petdeskdb', conn_max_age=600), 
     'ENGINE': 'django.db.backends.postgresql',
     'NAME': 'petdeskdb',
     'USER': 'pkerschieter',
-    'PASSWORD': env('PASS'),
+    'PASSWORD': os.environ.get('PASS'),
     'HOST': 'ep-muddy-frost-a5uydttf.us-east-2.aws.neon.tech',
     'PORT': '5432',
   }
