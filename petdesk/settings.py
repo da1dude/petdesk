@@ -105,6 +105,7 @@ WSGI_APPLICATION = 'petdesk.wsgi.application'
 
 DATABASES = {
     'default': {
+        'default': dj_database_url.config(default='postgresql://postgres:postgres@localhost:5432/petdeskdb', conn_max_age=600),
         'ENGINE': os.environ.get('ENGINE'),
         'NAME': os.environ.get('NEON_NAME'),
         'USER': os.environ.get('NEON_USER'),
