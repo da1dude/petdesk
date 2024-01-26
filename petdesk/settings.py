@@ -38,7 +38,7 @@ environ.Env.read_env(os.path.join(BASE_DIR, '.env'))
 # SECURITY WARNING: keep the secret key used in production secret!
 # SECRET_KEY = 'django-insecure-7cpmrb8055b6(k+wm+@ohu4y6!07fs98vz34&r9pv6^$4zgg!h'
 
-SECRET_KEY = env.str("SECRET_KEY")
+SECRET_KEY = os.environ['SECRET_KEY']
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = 'RENDER' not in os.environ
@@ -106,12 +106,12 @@ WSGI_APPLICATION = 'petdesk.wsgi.application'
 DATABASES = {
     'default': {
         'default': dj_database_url.config(default='postgresql://postgres:postgres@localhost:5432/petdeskdb', conn_max_age=600),
-        'ENGINE': os.environ.get('ENGINE'),
-        'NAME': env('NEON_NAME'),
-        'USER': env('NEON_USER'),
-        'PASSWORD': env('NEON_PASS'),
-        'HOST': env('NEON_HOST'),
-        'PORT': env('NEON_PORT'),
+        'ENGINE': os.environ['ENGINE'],
+        'NAME': os.environ['NEON_NAME'],
+        'USER': os.environ['NEON_USER'],
+        'PASSWORD': os.environ['NEON_PASS'],
+        'HOST': os.environ['NEON_HOST'],
+        'PORT': os.environ['NEON_PORT'],
     }
 }
 
