@@ -126,7 +126,7 @@ DATABASES = {
     'ENGINE': 'django.db.backends.postgresql',
     'NAME': 'petdeskdb',
     'USER': 'pkerschieter',
-    'PASSWORD': env.str('NEON_PASS'),
+    'PASSWORD': env('PASS'),
     'HOST': 'ep-muddy-frost-a5uydttf.us-east-2.aws.neon.tech',
     'PORT': '5432',
   }
