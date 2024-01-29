@@ -102,23 +102,6 @@ WSGI_APPLICATION = 'petdesk.wsgi.application'
 # To use Neon with Django, you have to create a Project on Neon and specify the project connection settings in your settings.py in the same way as for standalone Postgres.
 
 
-
-# DATABASES = {
-#     'default': dj_database_url.config(),
-# }
-
-# DATABASES = {
-#     'default': {
-#         'default': dj_database_url.config(default='postgresql://postgres:postgres@localhost:5432/petdeskdb', conn_max_age=600),
-#         'ENGINE': os.environ.get('ENGINE'),
-#         'NAME': os.environ.get('NEON_NAME'),
-#         'USER': os.environ.get('NEON_USER'),
-#         'PASSWORD': os.environ.get('NEON_PASS'),
-#         'HOST': os.environ.get('NEON_HOST'),
-#         'PORT': os.environ.get('NEON_PORT'),
-#     }
-# }
-
 # To use Neon with Django, you have to create a Project on Neon and specify the project connection settings in your settings.py in the same way as for standalone Postgres.
 
 DATABASES = {
@@ -127,7 +110,7 @@ DATABASES = {
     'ENGINE': 'django.db.backends.postgresql',
     'NAME': 'petdeskdb',
     'USER': 'pkerschieter',
-    'PASSWORD': os.environ.get('PASS'),
+    'PASSWORD': 'kJS01dEQsehz',
     'HOST': 'ep-muddy-frost-a5uydttf.us-east-2.aws.neon.tech',
     'PORT': '5432',
   }
